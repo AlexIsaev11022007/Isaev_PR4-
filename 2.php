@@ -4,10 +4,10 @@ function convertMilesToMeters($miles) {
     return $meters;
 }
 
-// Входные данные - расстояние между кораблями в милях
+// Входные данные - расстояние между кораблями в метрах
 $distanceInMiles = 18520;
 
-// Вызов функции для перерасчета расстояния в метры
+// Вызов функции для перерасчета расстояния в ярды
 $distanceInMeters = convertMilesToMeters($distanceInMiles);
 
 // Вывод результата
