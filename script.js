@@ -1,25 +1,33 @@
-<script src="script.js" type="text/javascript"></script>
-function calculateSquare() {
-    // Получаем значение введенное пользователем
-    var diagonalInput = document.getElementById("diagonal-input").value;
+function calculateTrapezoid() {
+    // Получаем значения, введенные пользователем
+    var heightInput = document.getElementById("height-input").value;
+    var base1Input = document.getElementById("base1-input").value;
+    var base2Input = document.getElementById("base2-input").value;
 
-    // Проверяем, что пользователь ввел число
-    if (isNaN(diagonalInput)) {
-        alert("Пожалуйста, введите числовое значение.");
+    // Проверяем, что пользователь ввел числовые значения
+    if (isNaN(heightInput) || isNaN(base1Input) || isNaN(base2Input)) {
+        alert("Пожалуйста, введите числовые значения для высоты и оснований.");
         return;
     }
 
-    // Вычисляем сторону квадрата
-    var side = diagonalInput / Math.sqrt(2);
+    // Преобразуем значения в числа
+    var height = parseFloat(heightInput);
+    var base1 = parseFloat(base1Input);
+    var base2 = parseFloat(base2Input);
 
-    // Вычисляем площадь квадрата
-    var area = side * side;
+    // Проверяем, что введенные значения являются положительными числами
+    if (height <= 0 || base1 <= 0 || base2 <= 0) {
+        alert("Пожалуйста, введите положительные числа для высоты и оснований.");
+        return;
+    }
 
-    // Вычисляем периметр квадрата
-    var perimeter = 4 * side;
+    // Вычисляем периметр трапеции
+    var perimeter = base1 + base2 + 2 * Math.sqrt(Math.pow((base1 - base2) / 2, 2) + Math.pow(height, 2));
+
+    // Вычисляем площадь трапеции
+    var area = ((base1 + base2) / 2) * height;
 
     // Выводим результат
-    document.getElementById("result").innerHTML = "Сторона квадрата: " + side.toFixed(2) +
-        " Площадь квадрата: " + area.toFixed(2) +
-        " Периметр квадрата: " + perimeter.toFixed(2);
+    document.getElementById("result").innerHTML = "Периметр трапеции: " + perimeter.toFixed(2) +
+        " Площадь трапеции: " + area.toFixed(2);
 }
