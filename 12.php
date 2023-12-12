@@ -1,26 +1,17 @@
 <?php
-function calculateSquare($diagonal) {
-    $side = $diagonal / sqrt(2); // Находим длину стороны квадрата
-    $perimeter = 4 * $side; // Находим периметр квадрата
-    $area = $side * $side; // Находим площадь квадрата
+function calculateDiagonal($perimeter) {
+    $side = $perimeter / 4; // Находим длину стороны квадрата
+    $diagonal = $side * sqrt(2); // Находим длину диагонали квадрата
 
-    // Возвращаем результаты в виде ассоциативного массива
-    $result = array(
-        'side' => $side,
-        'perimeter' => $perimeter,
-        'area' => $area
-    );
-    return $result;
+    return $diagonal;
 }
 
-// Входные данные - длина диагонали квадрата
-$diagonal = 10;
+// Входные данные - периметр квадрата
+$perimeter = 16;
 
-// Вызов функции для вычисления сторон, периметра и площади квадрата
-$squareData = calculateSquare($diagonal);
+// Вызов функции для вычисления длины диагонали квадрата
+$diagonal = calculateDiagonal($perimeter);
 
-// Вывод результатов
-echo "Сторона квадрата: " . $squareData['side'] . " единиц.";
-echo "Периметр квадрата: " . $squareData['perimeter'] . " единиц.";
-echo "Площадь квадрата: " . $squareData['area'] . " единиц квадратных.";
+// Вывод результата
+echo "Длина диагонали квадрата: " . $diagonal . " единиц.";
 ?>
