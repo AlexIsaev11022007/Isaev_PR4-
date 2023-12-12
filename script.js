@@ -1,17 +1,25 @@
 <script src="script.js" type="text/javascript"></script>
-function convertMileToMeter() {
+function calculateSquare() {
     // Получаем значение введенное пользователем
-    var mileInput = document.getElementById("mile-input").value;
+    var diagonalInput = document.getElementById("diagonal-input").value;
 
     // Проверяем, что пользователь ввел число
-    if (isNaN(mileInput)) {
+    if (isNaN(diagonalInput)) {
         alert("Пожалуйста, введите числовое значение.");
         return;
     }
 
-    // Вычисляем расстояние в метрах
-    var meter = mileInput * 1852;
+    // Вычисляем сторону квадрата
+    var side = diagonalInput / Math.sqrt(2);
+
+    // Вычисляем площадь квадрата
+    var area = side * side;
+
+    // Вычисляем периметр квадрата
+    var perimeter = 4 * side;
 
     // Выводим результат
-    document.getElementById("result").innerHTML = mileInput + " миль = " + meter + " метров.";
+    document.getElementById("result").innerHTML = "Сторона квадрата: " + side.toFixed(2) +
+        " Площадь квадрата: " + area.toFixed(2) +
+        " Периметр квадрата: " + perimeter.toFixed(2);
 }
