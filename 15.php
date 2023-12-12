@@ -1,27 +1,34 @@
 <?php
-function calculateTrapezoid($baseA, $baseB, $height) {
-    $sideC = sqrt(pow(($baseB - $baseA) / 2, 2) + pow($height, 2)); // Вычисление боковой стороны C
-    $sideD = $sideC; // Боковая сторона D равна C
-    $perimeter = $baseA + $baseB + $sideC + $sideD; // Вычисление периметра трапеции
-    $area = ($baseA + $baseB) * $height / 2; // Вычисление площади трапеции
+function findTrapezoidSides($perimeter, $area) {
+    // Инициализация переменных
+    $a = 0;
+    $b = 0;
+    $c = 0;
+    $d = 0;
+    
+    // Предположим, что $c и $d будут наибольшими сторонами
+    if ($perimeter > 2 * ($c + $d)) {
+        // Вычисляем высоту трапеции
+        $h = (2 * $area) / ($c + $d);
 
-    // Возвращаем результаты в виде ассоциативного массива
-    $result = array(
-        'perimeter' => $perimeter,
-        'area' => $area
-    );
-    return $result;
+        // Вычисляем стороны a и b
+        $a = $perimeter - $b - $c - $d;
+        $b = $perimeter - $a - $c - $d;
+    }
+    
+    // Возвращаем значения сторон трапеции
+    return [$a, $b, $c, $d];
 }
 
-// Входные данные - основание A, основание B и высота трапеции
-$baseA = 5;
-$baseB = 9;
-$height = 4;
+// Пример использования функции
+$perimeter = 20;
+$area = 50;
 
-// Вызов функции для вычисления периметра и площади трапеции
-$result = calculateTrapezoid($baseA, $baseB, $height);
+$sides = findTrapezoidSides($perimeter, $area);
+$a = $sides[0];
+$b = $sides[1];
+$c = $sides[2];
+$d = $sides[3];
 
-// Вывод результатов
-echo "Периметр трапеции: " . $result['perimeter'] . " единиц.\n";
-echo "Площадь трапеции: " . $result['area'] . " квадратных единиц.";
+echo "Стороны трапеции: a = $a, b = $b, c = $c, d = $d";
 ?>
