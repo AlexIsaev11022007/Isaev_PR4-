@@ -1,3 +1,4 @@
+<script src="script.js" type="text/javascript"></script>
 function convertMileToMeter() {
     // Получаем значение введенное пользователем
     var mileInput = document.getElementById("mile-input").value;
