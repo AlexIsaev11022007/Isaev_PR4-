@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"
-    <title>Калькулятор квадрата</title>
+    <title>Калькулятор трапеции</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Калькулятор квадрата</h1>
+        <h1>Калькулятор трапеции</h1>
         <div class="calculator">
-            <label for="diagonal-input">Введите длину диагонали квадрата:</label>
-            <input type="number" id="diagonal-input">
-            <button onclick="calculateSquare()">Рассчитать</button>
+            <label for="height-input">Высота:</label>
+            <input type="number" id="height-input">
+            <label for="base1-input">Основание 1:</label>
+            <input type="number" id="base1-input">
+            <label for="base2-input">Основание 2:</label>
+            <input type="number" id="base2-input">
+            <button onclick="calculateTrapezoid()">Рассчитать</button>
         </div>
         <div id="result"></div>
     </div>
